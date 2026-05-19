@@ -81,6 +81,9 @@ jobs:
       - name: Run daily analysis
         run: python main.py
 
+      - name: 转换报告为手机HTML格式
+        run: python scripts/convert_reports.py reports
+
       - name: Upload analysis artifacts
         uses: actions/upload-artifact@v6
         if: always()
