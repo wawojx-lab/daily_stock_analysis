@@ -52,6 +52,8 @@ jobs:
       SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
       EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
       EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      SERVERCHAN3_SENDKEY: ${{ secrets.SERVERCHAN3_SENDKEY }}
+      PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
 
       # ==========================================
       # 自选股 & 运行配置
