@@ -62,7 +62,7 @@ jobs:
       REPORT_TYPE: ${{ vars.REPORT_TYPE || secrets.REPORT_TYPE || 'simple' }}
       MARKET_REVIEW_ENABLED: ${{ vars.MARKET_REVIEW_ENABLED || secrets.MARKET_REVIEW_ENABLED || 'true' }}
       TRADING_DAY_CHECK_ENABLED: ${{ vars.TRADING_DAY_CHECK_ENABLED || secrets.TRADING_DAY_CHECK_ENABLED || 'true' }}
-      MAX_WORKERS: ${{ vars.MAX_WORKERS || secrets.MAX_WORKERS || '1' }}
+      MAX_WORKERS: ${{ vars.MAX_WORKERS || secrets.MAX_WORKERS || '3' }}
       LOG_LEVEL: INFO
 
     steps:
@@ -74,6 +74,13 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
+
+      - name: Cache stock data
+        uses: actions/cache@v4
+        with:
+          path: data/
+          key: stock-data-${{ github.run_number }}
+          restore-keys: stock-data-
 
       - name: Install dependencies
         run: |
